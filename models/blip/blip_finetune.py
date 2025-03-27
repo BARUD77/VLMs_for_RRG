@@ -45,8 +45,8 @@ from models.blip.blip_dataset import BlipMimicIVCXR
 
 # Constants
 SEED = 23
-DATASET_LEN = int(424189 * 0.9)
-NGPUS = 4
+DATASET_LEN = int(175274 * 0.75)
+NGPUS = 1
 BATCH_SIZE = 32
 MAX_EPOCHS = 2
 MAX_LEN = 512
@@ -176,7 +176,7 @@ if __name__ == '__main__':
     torch.cuda.empty_cache()
     torch.set_float32_matmul_precision("medium")
 
-    graph_report_dir = "mimic-data/graph_report_adib.csv"
+    graph_report_dir = "C:\Users\Natnael\Documents\GitHub\VLMs_for_RRG\graph_report.csv"
 
     # Initialize processor and model
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
@@ -231,7 +231,7 @@ if __name__ == '__main__':
     wandb_logger = WandbLogger(
         project='blip-mimic-cxr',
         save_dir='wandb',
-        entity='adibvafa',
+        entity='natnaelabule2016',
         resume="allow",
     )
 

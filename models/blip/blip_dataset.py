@@ -56,8 +56,8 @@ class BlipMimicIVCXR(Dataset):
         # Load the CSV file
         df = pd.read_csv(self.graph_report_dir)
         
-        # Filter out rows with missing gender
-        df = df[df["gender"] != ""]
+        # # Filter out rows with missing gender
+        # df = df[df["gender"] != ""]
 
         # Extract all the radiograph paths from the dataset
         self.images_paths = df["radiograph_path"].tolist()

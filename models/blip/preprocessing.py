@@ -2,17 +2,17 @@ import pandas as pd
 import os
 
 # === CONFIG === (Replace with our own paths)
-metadata_csv = "C:\\Khalifa University Documents\\Spring 2025\\Vision Language Models\\Course project\\mimic-cxr-2.0.0-metadata.csv\\mimic-cxr-2.0.0-metadata.csv"
+metadata_csv = r"C:\Users\Natnael\Desktop\mimic-cxr-2.0.0-metadata\mimic-cxr-2.0.0-metadata.csv"
 output_csv = "graph_report.csv"
 
-image_base = "E:\\mimic\\files"  # Base folder for .jpg images
-report_base = "C:\\Khalifa University Documents\\Spring 2025\\Vision Language Models\\Course project\\mimic-cxr-reports\\files"  # Base folder for .txt reports
+image_base = r"C:\Users\Natnael\Desktop\Chest Radiology\M_CXR\files"  # Base folder for .jpg images
+report_base = r"C:\Users\Natnael\Desktop\mimic-cxr-reports\files"  # Base folder for .txt reports
 
 # === LOAD METADATA ===
 metadata = pd.read_csv(metadata_csv)
 
 # Filter to only subject_ids starting with 10–13
-metadata = metadata[metadata["subject_id"].astype(str).str.startswith(("10", "11", "12", "13"))]
+metadata = metadata[metadata["subject_id"].astype(str).str.startswith(("10", '11', '12', '13','14','15','16'',17','18','19'))]
 
 # Only keep PA or AP views
 metadata = metadata[metadata["ViewPosition"].isin(["PA", "AP"])]
