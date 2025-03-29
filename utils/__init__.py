@@ -1,1 +1,1 @@
-from utils import seed_everything
+from .utils import seed_everything

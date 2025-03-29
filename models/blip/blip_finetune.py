@@ -24,7 +24,11 @@ Functions:
   - Initializes the PyTorch Lightning trainer.
   - Starts the training process.
 """
-
+import sys
+from pathlib import Path
+# Add project root to Python path
+sys.path.append(str(Path(__file__).parent.parent.parent))
+from utils.utils import seed_everything
 import os
 from typing import Any, Dict
 
@@ -39,7 +43,7 @@ from pytorch_lightning.strategies.ddp import DDPStrategy
 
 from transformers import BlipForConditionalGeneration, BlipProcessor
 
-from utils import seed_everything
+# from ...utils.utils import seed_everything
 from models.blip.blip_dataset import BlipMimicIVCXR
 
 
@@ -176,7 +180,7 @@ if __name__ == '__main__':
     torch.cuda.empty_cache()
     torch.set_float32_matmul_precision("medium")
 
-    graph_report_dir = "C:\Users\Natnael\Documents\GitHub\VLMs_for_RRG\graph_report.csv"
+    graph_report_dir = r"C:\Users\Natnael\Documents\GitHub\VLMs_for_RRG\graph_report.csv"
 
     # Initialize processor and model
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
